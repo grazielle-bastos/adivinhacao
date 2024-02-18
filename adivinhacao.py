@@ -4,9 +4,8 @@ print("*********************************")
 
 numero_secreto = 47
 total_tentativas = 3
-rodada = 1
 
-while (rodada <= total_tentativas):
+for rodada in range(1, total_tentativas + 1):
     print("Tentativa {} de {}". format(rodada, total_tentativas))
     chute_str = input("Digite o seu número: ")
     print("Você digitou ", chute_str)
@@ -24,6 +23,8 @@ while (rodada <= total_tentativas):
         elif (menor):
             print("Você errou! O seu chute foi menor do que o número secreto.")
 
-    rodada = rodada + 1
+    # A variável rodada já está definido através do 'for', assim como o incremento já é feito pelo for,
+    # diferente do while:
+    # rodada = rodada + 1
 
     print("Fim do jogo")
