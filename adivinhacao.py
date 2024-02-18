@@ -13,14 +13,14 @@ print("Qual nível de dificuldade?")
 print("(1) Fácil (2) Médio (3) Difícil")
 
 # Estrutura: o nível é uma variável intermediária para definir o total
-nivel = int(input("Define o nível: "))
+nivel = int(input("Define o nível de dificuldade: "))
 
 if (nivel == 1):
-    total_tentativas = 20
+    total_tentativas = 6
 elif (nivel == 2):
-    total_tentativas = 10
+    total_tentativas = 4
 else:
-    total_tentativas = 5
+    total_tentativas = 2
 
 # Estrutura: laço
 for rodada in range(1, total_tentativas + 1):
@@ -44,15 +44,21 @@ for rodada in range(1, total_tentativas + 1):
         print("Você acertou e fez {} pontos!".format(pontos))
         break
     else:
-        if (maior):
-            print("Você errou! O seu chute foi maior do que o número secreto.")
-        elif (menor):
-            print("Você errou! O seu chute foi menor do que o número secreto.")
         pontos_perdidos = abs(numero_secreto - chute)
         pontos = pontos - pontos_perdidos
+        if (maior):
+            print("Você errou! O seu chute foi maior do que o número secreto.")
+            if (rodada == total_tentativas):
+                print("O número secreto era {}. Você fez {} pontos.".format(numero_secreto, pontos))
+        elif (menor):
+            print("Você errou! O seu chute foi menor do que o número secreto.")
+            if (rodada == total_tentativas):
+                print("O número secreto era {}. Você fez {} pontos.".format(numero_secreto, pontos))
 
-    # A variável rodada já está definido através do 'for', assim como o incremento já é feito pelo for,
-    # diferente do while:
-    # rodada = rodada + 1
+                # A variável rodada já está definido através do 'for', assim como o incremento já é feito pelo for,
+                # diferente do while:
+                # rodada = rodada + 1
 
-    print("Fim do jogo")
+                print("Fim do jogo")
+
+
